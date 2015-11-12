@@ -1,0 +1,55 @@
+\documentclass[10pt,usenames,dvipsnames,svgnames,table]{beamer}
+\usetheme{Warsaw}
+
+\usepackage[english]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{epstopdf}
+\graphicspath{ {./images/} }
+\allowdisplaybreaks
+\setbeamertemplate{bibliography item}[text] %remove the icon
+\setbeamertemplate{frametitle continuation}{}
+
+\title{Optimal Location of Car Werck Adjusters}
+\subtitle{Presentation to Committee}
+\author{Luis Maltos}
+\institute[PISIS]{
+  Posgrado en Ingenier\'a de Sistemas \\
+  FIME / UANL}
+\date[Sinodales]{\today}
+
+\AtBeginSubsection{
+  \frame{\frametitle{Table of Contents}
+    \tableofcontents[currentsubsection]}
+}
+
+\begin{document}
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}{Contents}
+  \tableofcontents
+\end{frame}
+
+%%% Introduction %%%
+\include{Introduction}
+%%% Solution methods %%%
+\include{Methods}
+%%% Models %%%
+\include{Model_A}
+\include{Model_B}
+%%% Results %%%
+\include{Results}
+\include{FutureWork}
+%%% References %%%
+\begin{frame}[allowframebreaks]
+  %\setbeamertemplate{bibliography item}{\insertbiblabel}
+  \frametitle{References}
+  {\scriptsize
+    \bibliographystyle{abbrv}
+    \bibliography{references}
+  }
+\end{frame}
+\end{document}
