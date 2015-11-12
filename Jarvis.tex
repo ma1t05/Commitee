@@ -1,0 +1,136 @@
+% Approximating the Equilibrium Behavior of Multi-Server Loss Systems
+% Jarvis - Management Sience
+% 1985
+
+\section{Approximating the Equilibrium Behavior of MSLS}
+\begin{frame}
+  In Jarvis \cite{jarvis1985approximating} a procedure is given for approximating the equilibrium behavior of 
+  multi-server loss systems having distinguishable servers
+  and multiple customers types under light to moderate traffic intensity.
+\end{frame}
+
+\subsection{Introduction}
+\begin{frame}
+  In an emergency service such as fire or police, 
+  the servers are fire fighting units or patrol cars
+  and the customers are calls for service.
+  The simple Erlang loss system  is inadequate in two aspects for a detailed system analysis.
+  \begin{enumerate}
+  \item one often wishes to preserve the identity of service units (distinguishable servers).
+  \item because of the geographic nature of these systems,
+    the service time depend on both the server and the customer at least through the travel time between the pair.
+  \end{enumerate}
+\end{frame}
+
+\subsection{Model assumptions, Notation, and Terminology}
+\begin{frame}
+  Consider a system in which:
+  \begin{enumerate}
+  \item Exactly one server is assigned to each customer unless all servers are busy, 
+    in which case the customer is irrevocably lost of the system
+  \item Servers are assigned to customers according to a fixed preference assignment rule
+  \item No preemption of service is allowed
+  \item Assignments are made immediately upon customer arrival
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}
+  and we have the following parameters
+  \begin{enumerate}
+  \item \textit{N} distinguishable servers
+  \item \textit{C} types of customers
+  \item Customers of type \textit{m} arrive according to a Poisson process with rate $\lambda_{m}$
+  \item $\lambda$ total arrival rate
+  \item $a_{mk}$ be the \textit{k}th preferred server for customers of type \textit{m}
+  \item $\tau_{im}$ the expected service time for server \textit{i} and customer of type \textit{m}
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}
+  The performance measures for the system include 
+  \begin{enumerate}
+  \item $\rho_i$ the workload of server \texit{i}
+  \item $f_{im}$ the probability a random customer of type \textit{m} is assigned to server \textit{i}
+  \item $P_{N}$ the probability all servers are busy
+  \end{enumerate}
+\end{frame}
+
+\subsection{Approximation Procedure}
+\begin{frame}
+  The procedure described is based on that given by Larson \cite{larson1975approximating}
+  for approximating performance measures for the Hypercube model assuming exponential service times.
+  Larson developed an approximation for $f_{im}$ as
+  \begin{equation} \label{f_im}
+    f_{im} \simeq Q(N,p,k-1)(1-\rho_{i})\prod_{l=1}^{k-1}{\rho_{a_{ml}}}
+  \end{equation}
+  where
+  \begin{equation} \label{Q}
+    Q(N,p,k)=\sum_{j=k}^{N-1}{\frac{(N-j)(N^j)(\rho^{j-k})P_0(N-k-1)!}{(j-k)!(1-P_N)^kN!(1-\rho(1-P_N))}} \\
+    \hfill \mbox{for} k = 0,1,\ldots,N-1
+  \end{equation}
+\end{frame}
+
+\begin{frame}
+  Let $B_i$ denote the event that server \textit{i} is busy;
+  and let $B_{im}$ denote the event that server \textit{i} is busy serving a customer of type \textit{m}, then
+  \begin{equation} \label{rho_i}
+    \rho_{i} = Pr\left[B_i\right] = \sum_{m=1}^{C}{Pr\left[B_{im}\right]} = \sum_{m=1}^{C}{\lambda_{m}f_{im}\tau_{im}}
+  \end{equation}
+  combine equations (\ref{f_im}) and (\ref{rho_i}) and solve for $\rho_i$ to obtain the approximation iteration
+  \begin{equation}
+    \rho_i\mbox{(new)}=\frac{V_i}{(1+V_i)}
+  \end{equation}
+  where $V_i$ is given by
+  \begin{equation} \label{V_i}
+    V_i = \sum_{k=1}^{N}{\sum_{m:a_{mk}=i}{\lambda_m \tau_{im} Q(N,\rho,k-1)\prod_{l=1}^{k-1}{\rho_{a_{ml}}}}}
+  \end{equation}
+\end{frame}
+
+\begin{frame}
+  When there is a common mean service time, the estimates for $\rho_i$ can be normalized using
+  \begin{equation} \label{P_N}
+    \sum_{i=1}^{N}{\rho_i} = N \rho (1 - P_{N})
+  \end{equation}
+
+  In the generalized procedure, $\tau$ can be approximated at the end of each iteration by
+  \begin{equation} \label{tau}
+    \tau = \sum_{m=1}^{C}{\left(\frac{\lambda_m}{\lambda}\right)\sum_{i=1}^{N}{\frac{\tau_{im}f_{im}}{(1-P_N)}}}
+  \end{equation}
+\end{frame}
+
+\begin{frame}{Approximation Algorithm}{}
+  {\footnotesize
+    \begin{center}
+      \textit{ Approximation Algorithm}
+    \end{center}
+    \vspace{-8pt}
+    \hline \\
+    \vspace{2pt}
+    \textit{Given:}
+    \begin{equation*}
+      \lambda_m,\tau_{im},a_{mk}\mbox{  for } m = 1,\ldots,C;i=1,\ldots,N;k=1,\ldots,N \hfill
+    \end{equation*}
+    \textit{Initialize:}
+    \begin{equation*}
+      \rho_i = \sum_{m: a_{m1} = i}{\lambda_m \tau_{im}}; \; \tau = \sum_{m=1}^{C}{(\lambda_m/\lambda)\tau_{a_{m1},m}} \hfill
+    \end{equation*}
+    \textit{Iteration:}\\
+    \textit{Step 1.} Compute $Q(N,\rho,k)$ for $k = 1,\ldots,N-1$ where $\rho = \lambda \tau / N$ using equation (\ref{Q}). \\
+    \textit{Step 2.} For $i = 1,\ldots,N$, the new $\rho_i$ is $V_i/(1+V_i)$, where $V_i$ is given by equation (\ref{V_i}). \\
+    \textit{Step 3.} Stop if max change in $\rho_i$ is less than convergence criterion. \\
+    \textit{Step 4.} Else compute $P_N$ by equation (\ref{P_N}), $\tau$ by equation (\ref{tau}), and $f_{im}$ by equation (\ref{f_im}). \\
+    \textit{Step 5.} Return to \textit{Step 1.} \\
+    \hline
+  }
+\end{frame}
+
+\begin{frame}
+  No analytic bounds on the accuracy or convergence properties of the approximation procedure have been developed.
+
+  In regards to convergence properties,
+  the numerical iteration has proved to be very stable and converges in a small number of iterations under relatively stringent conditions,
+  with 4 to 6 iterations being typical for 10 servers systems.
+
+  In comparing the accuracy of this approximation to results of the exact Hypercube model,
+  Larson has found errors in server workloads to be less than 1 to 2 percent.
+\end{frame}
