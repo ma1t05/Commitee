@@ -6,8 +6,8 @@
   X = fisrt elite solution \hfill
   
   \textit{Iterarion:}
-  pm = PerfectMatching(X,Y)\\
-  order = determine-order(X,pm,Y)\\
-  if X->server(i)->location != Y->server(pm[i])->location
-  X->server(i)->location = Y->server(pm[i])->location
+  match = Matching(X,Y)\\
+  order = determine-order(X,match,Y)\\
+  if X.ServerLocation(i) != Y.ServerLocation(match[i])
+  X.SetServerLocation(i,Y.ServerLocation(pm[i]))
 \end{frame}
