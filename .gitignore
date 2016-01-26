@@ -1,5 +1,6 @@
 *.bbl
 *.blg
+*.dvi
 *.log
 *.nav
 *.out
@@ -7,3 +8,4 @@
 *.snm
 *.toc
 *.aux
+*~
