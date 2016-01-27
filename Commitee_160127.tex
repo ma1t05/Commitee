@@ -13,9 +13,10 @@
 \allowdisplaybreaks
 \setbeamertemplate{bibliography item}[text] %remove the icon
 \setbeamertemplate{frametitle continuation}{}
+% To include verbatim
 \usepackage[dvipsnames]{xcolor}
-
 \usepackage{fancyvrb}
+\usepackage{soul}
 
 \title{Heuristics Methods for Locating Car Wreck Adjusters}
 \subtitle{Presentation to Committee}
@@ -45,18 +46,7 @@
 \include{Simulation}
 %%% Solution methods %%%
 \include{LocalSearch}
-%%% Results %%%
-\include{Comparative}
 %\include{Results}
 \include{FutureWork}
 %%% References %%%
-\subsection{References}
-\begin{frame}[allowframebreaks]
-  %\setbeamertemplate{bibliography item}{\insertbiblabel}
-  \frametitle{References}
-  {\scriptsize
-    \bibliographystyle{abbrv}
-    \bibliography{references}
-  }
-\end{frame}
 \end{document}
