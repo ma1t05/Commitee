@@ -1,13 +1,39 @@
 \section{Path Relinking}
+\subsection{Algorithm}
 \begin{frame}{Path Relinking Algorithm}{}
-  \textit{Given:}
-  List of elite solutions \\
-  \textit{Initialize:} \\
-  X = fisrt elite solution \hfill
-  
-  \textit{Iterarion:}
-  match = Matching(X,Y)\\
-  order = determine-order(X,match,Y)\\
-  if X.ServerLocation(i) != Y.ServerLocation(match[i])
-  X.SetServerLocation(i,Y.ServerLocation(pm[i]))
+  \footnotesize{
+  \begin{algorithm}
+    \hline \vspace{3pt}
+    \caption{Path Relinking}\label{proc_rel}
+    \vspace{3pt} \hline
+    \begin{algorithmic}[0]
+      \Procedure{PahtRelinking}{$Instance$}
+      \State $SolsPR \gets EmptyList()$
+      \State $EliteSols \gets GenerateEliteSols(Instance)$
+      \State $MiscSols \gets GenerateMiscSols(Instance,EliteSols)$
+      \State $Solutions \gets merge(EliteSols,MiscSols)$
+      \ForAll{$SolX \gets Solutions$}
+      \ForAll{$SolY \gets Solutions$}
+      \State $match \gets Matching(SolX,SolY)$
+      \Comment{perfect,workload,random}
+      \State $order \gets ProcesOrder(SolX,match,SolY)$
+      \Comment{nearest/farthest first,random}
+      \For{$i \gets 1,p$}
+      \State $j \gets order[i]$
+      \If{$SolX.ServerLocation(j) != SolY.ServerLocation(match[j])$}
+      \State $SolX.SetServerLocation(j,SolY.ServerLocation(match[j]))$
+      \State $SolsPR.insert(SolX)$
+      \EndIf \EndFor \EndFor \EndFor
+      \EndProcedure
+      \hline
+    \end{algorithmic}
+  \end{algorithm}}
+\end{frame}
+
+\subsection{Test}
+\begin{frame}
+  The test are pending due to a detected error in the Mean Service Time 
+  Calibration process.
+  The proupose is to determine what levels (methods) are better,
+  making a desing of experiments.
 \end{frame}
