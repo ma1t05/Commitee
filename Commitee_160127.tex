@@ -4,12 +4,18 @@
 \usepackage[english]{babel}
 \usepackage[latin1]{inputenc}
 \usepackage{amssymb}
+\usepackage{amsmath}
+%\usepackage{algorithm}
+\usepackage{algpseudocode}
 \usepackage{graphicx}
 \usepackage{epstopdf}
 \graphicspath{ {./images/} }
 \allowdisplaybreaks
 \setbeamertemplate{bibliography item}[text] %remove the icon
 \setbeamertemplate{frametitle continuation}{}
+\usepackage[dvipsnames]{xcolor}
+
+\usepackage{fancyvrb}
 
 \title{Heuristics Methods for Locating Car Wreck Adjusters}
 \subtitle{Presentation to Committee}
@@ -33,13 +39,14 @@
   \tableofcontents
 \end{frame}
 
-%%% Introduction %%%
-\include{Introduction}
+%%% PathRelinking Results %%%
+\include{PathRelinking}
 %%% Evaluation %%%
 \include{Simulation}
 %%% Solution methods %%%
 \include{LocalSearch}
 %%% Results %%%
+\include{Comparative}
 %\include{Results}
 \include{FutureWork}
 %%% References %%%

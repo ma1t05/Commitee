@@ -1,0 +1,21 @@
+[07:10] Incoming call from demand point 8
+	Call hosted by server 9
+[07:20] Incoming call from demand point 29
+	Call hosted by server 7
+[07:28] Server 9 released
+	Busy servers: 7
+[07:34] Incoming call from demand point 42
+	Call hosted by server 9
+[07:42] Incoming call from demand point 14
+	Call hosted by server 2
+[07:50] Server 7 released
+	Busy servers: 2 9
+[07:54] Incoming call from demand point 49
+	Call hosted by server 5
+[08:08] Incoming call from demand point 18
+	Call hosted by server 4
+[08:09] Incoming call from demand point 42
+	Call hosted by server 7
+[08:19] Server 2 released
+	Busy servers: 4 5 7 9
+[08:21] Server 9 released ...
