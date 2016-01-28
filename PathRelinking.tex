@@ -12,18 +12,17 @@
       \State $EliteSols \gets GenerateEliteSols(Instance)$
       \State $MiscSols \gets GenerateMiscSols(Instance,EliteSols)$
       \State $Solutions \gets merge(EliteSols,MiscSols)$
-      \ForAll{$SolX \gets Solutions$}
-      \ForAll{$SolY \gets Solutions$}
-      \State $match \gets Matching(SolX,SolY)$
+      \ForAll{$(x,y) \in Solutions$}
+      \State $match \gets Matching(x,y)$
       \Comment{perfect,workload,random}
-      \State $order \gets ProcesOrder(SolX,match,SolY)$
+      \State $order \gets ProcessOrder(x,match,y)$
       \Comment{nearest/farthest first,random}
       \For{$i \gets 1,p$}
       \State $j \gets order[i]$
-      \If{$SolX.ServerLocation(j) != SolY.ServerLocation(match[j])$}
-      \State $SolX.SetServerLocation(j,SolY.ServerLocation(match[j]))$
-      \State $SolsPR.insert(SolX)$
-      \EndIf \EndFor \EndFor \EndFor
+      \If{$x.ServerLocation(j) != y.ServerLocation(match[j])$}
+      \State $x.SetServerLocation(j,y.ServerLocation(match[j]))$
+      \State $SolsPR.insert(x)$
+      \EndIf \EndFor \EndFor
       \EndProcedure
       \hline
     \end{algorithmic}
