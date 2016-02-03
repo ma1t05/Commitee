@@ -1,13 +1,16 @@
 \section{Path Relinking}
-\begin{frame}{Path Relinking Algorithm}{}
-  \textit{Given:}
-  List of elite solutions \\
-  \textit{Initialize:} \\
-  X = fisrt elite solution \hfill
-  
-  \textit{Iterarion:}
-  pm = PerfectMatching(X,Y)\\
-  order = determine-order(X,pm,Y)\\
-  if X->server(i)->location != Y->server(pm[i])->location
-  X->server(i)->location = Y->server(pm[i])->location
+
+\subsection{Outline}
+\begin{frame}[allowframebreaks]{Path Relinking Outline}{}
+  \input{PathRelinking_Outline}
+\end{frame}
+
+\subsection{Template}
+\begin{frame}[allowframebreaks]{Path Relinking Template}{}
+  \input{PathRelinking_Template}
+\end{frame}
+
+\subsection{Algorithm}
+\begin{frame}[allowframebreaks]{Path Relinking Algorithm}{}
+  \footnotesize{\input{PathRelinking_Algorithm}}
 \end{frame}

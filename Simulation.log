@@ -1,0 +1,20 @@
+...[16:15] Server 5 released
+	Busy servers: 0 1 3 6 7 8 9
+[16:17] Incoming call from demand point 12
+	Call hosted by server 2
+[16:17] Incoming call from demand point 20
+	Call hosted by server 4
+[16:19] Incoming call from demand point 21
+	Call hosted by server 5
+[16:22] Incoming call from demand point 48
+	Call send to queue: 48
+[16:24] Incoming call from demand point 45
+	Call send to queue: 48 45
+[16:48] Server 9 released
+	Busy servers: 0 1 2 3 4 5 6 7 8
+	Queue isn't empty! [ 48 45 ]
+[16:48] Queued call since [00:26] from demand point 48
+	Call hosted by server 9
+[16:54] Server 7 released
+	Busy servers: 0 1 2 3 4 5 6 8 9
+	Queue isn't empty! [ 45 ]...
