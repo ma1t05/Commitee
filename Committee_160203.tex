@@ -1,0 +1,59 @@
+\documentclass[10pt,usenames,dvipsnames,svgnames,table]{beamer}
+\usetheme{Warsaw}
+
+\usepackage[english]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage{amssymb}
+\usepackage{amsmath}
+%\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{graphicx}
+\usepackage{epstopdf}
+\graphicspath{ {./images/} }
+\allowdisplaybreaks
+\setbeamertemplate{bibliography item}[text] %remove the icon
+\setbeamertemplate{frametitle continuation}{}
+% To include verbatim
+\usepackage[dvipsnames]{xcolor}
+\usepackage{fancyvrb}
+\usepackage{soul}
+
+\title{Heuristics Methods for Locating Car Wreck Adjusters}
+\subtitle{Presentation to Committee}
+\author{Luis Maltos}
+\institute[PISIS]{
+  Graduate Program in Systems Engineering \\
+  FIME / UANL}
+\date[Sinodales]{\today}
+
+\AtBeginSubsection{
+  \frame{\frametitle{Table of Contents}
+    \tableofcontents[currentsubsection]}
+}
+
+\begin{document}
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}{Contents}
+  \tableofcontents
+\end{frame}
+
+%%% PathRelinking Results %%%
+\include{PathRelinking}
+%%% Evaluation %%%
+%%% Solution methods %%%
+%\include{Results}
+\include{FutureWork}
+%%% References %%%
+\subsection{References}
+\begin{frame}[allowframebreaks]
+  %\setbeamertemplate{bibliography item}{\insertbiblabel}
+  \frametitle{References}
+  {\scriptsize
+    \bibliographystyle{abbrv}
+    \bibliography{references}
+  }
+\end{frame}
+\end{document}
