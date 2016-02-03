@@ -1,0 +1,66 @@
+\begin{algorithm}
+  \hline \vspace{3pt}
+  \caption{Path Relinking Initial Phase}\label{pr_init}
+  \vspace{3pt} \hline
+  \begin{algorithmic}[0]
+    \Procedure{PathRelinking}{$Instance$}
+    \State $EliteSols \gets MultiStart(Instance)$
+    \Repeat
+    \State $MiscSols \gets GenerateMiscSols(Instance,EliteSols)$
+    \ForAll{$x \in MiscSols$}
+    \State $ImprovementMethod(x)$
+    \State $EliteSols.Update(x)$
+    \EndFor
+    \Until{$PerfectMatchingCost(MiscSols,EliteSols) > \epsilon$}
+    \State $SubsetControl(EliteSols)$
+    \EndProcedure
+    \hline
+  \end{algorithmic}
+\end{algorithm}
+
+\newpage
+\begin{algorithm}
+  \hline \vspace{3pt}
+  \caption{Path Relinking Phase}\label{pr_pahse}
+  \vspace{3pt} \hline
+  \begin{algorithmic}[0]
+    \Procedure{SubsetControl}{$RefSet$}
+    \State $SubsetType \gets 0$
+    \State $NowTime \gets 0$
+    \While{$!StopCondition$}
+    \State $SubsetType \gets next(SubsetType)$
+    \State $NowTime \gets NowTime + 1$
+    \State $iNew \gets NumberOfNewSols(RefSet,SubsetType)$
+    \If{$iNew = 0$}
+    \State $exit$
+    \EndIf
+    \State $Call SubsetType.Algorithm(RefSet)$
+    \State $LastRun[SubsetType] \gets NowTime$
+    \EndWhile
+    \EndProcedure
+    \hline
+  \end{algorithmic}
+\end{algorithm}
+
+\newpage
+\begin{algorithm}
+  \hline \vspace{3pt}
+  \caption{Path Relinking Combination Method}\label{pr_combination}
+  \vspace{3pt} \hline
+  \begin{algorithmic}[0]
+    \Procedure{PahtRelinkingCombination}{$RefSet,Solutions$}
+    \ForAll{$(x,y) \in Solutions$}
+    \State $match \gets Matching(x,y)$
+    \Comment{perfect,workload,random}
+    \State $order \gets ProcessOrder(x,match,y)$
+    \Comment{nearest/farthest first,random}
+    \For{$i \gets 1,p$}
+    \State $j \gets order[i]$
+    \If{$x.ServerLocation(j) != y.ServerLocation(match[j])$}
+    \State $x.SetServerLocation(j,y.ServerLocation(match[j]))$
+    \State $RefSet.Update(x)$
+    \EndIf \EndFor \EndFor
+    \EndProcedure
+    \hline
+  \end{algorithmic}
+\end{algorithm}

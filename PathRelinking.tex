@@ -1,38 +1,16 @@
 \section{Path Relinking}
-\subsection{Algorithm}
-\begin{frame}{Path Relinking Algorithm}{}
-  \footnotesize{
-  \begin{algorithm}
-    \hline \vspace{3pt}
-    \caption{Path Relinking}\label{proc_rel}
-    \vspace{3pt} \hline
-    \begin{algorithmic}[0]
-      \Procedure{PahtRelinking}{$Instance$}
-      \State $SolsPR \gets EmptyList()$
-      \State $EliteSols \gets GenerateEliteSols(Instance)$
-      \State $MiscSols \gets GenerateMiscSols(Instance,EliteSols)$
-      \State $Solutions \gets merge(EliteSols,MiscSols)$
-      \ForAll{$(x,y) \in Solutions$}
-      \State $match \gets Matching(x,y)$
-      \Comment{perfect,workload,random}
-      \State $order \gets ProcessOrder(x,match,y)$
-      \Comment{nearest/farthest first,random}
-      \For{$i \gets 1,p$}
-      \State $j \gets order[i]$
-      \If{$x.ServerLocation(j) != y.ServerLocation(match[j])$}
-      \State $x.SetServerLocation(j,y.ServerLocation(match[j]))$
-      \State $SolsPR.insert(x)$
-      \EndIf \EndFor \EndFor
-      \EndProcedure
-      \hline
-    \end{algorithmic}
-  \end{algorithm}}
+
+\subsection{Outline}
+\begin{frame}[allowframebreaks]{Path Relinking Outline}{}
+  \input{PathRelinking_Outline}
 \end{frame}
 
-\subsection{Test}
-\begin{frame}
-  The test are pending due to a detected error in the Mean Service Time 
-  Calibration process.
-  The proupose is to determine what levels (methods) are better,
-  making a desing of experiments.
+\subsection{Template}
+\begin{frame}[allowframebreaks]{Path Relinking Template}{}
+  \input{PathRelinking_Template}
+\end{frame}
+
+\subsection{Algorithm}
+\begin{frame}[allowframebreaks]{Path Relinking Algorithm}{}
+  \footnotesize{\input{PathRelinking_Algorithm}}
 \end{frame}

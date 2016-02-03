@@ -1,0 +1,42 @@
+\subsubsection{Initial Phase}
+\textbf{Initial Phase}
+\begin{enumerate}
+\item \textit{(Seed Solution Step.)}
+  Create one or more seed solutions, 
+  which are arbitrary trial solutions
+  used to initiate the remainder of the method.
+\item \textit{(Diversification Generator.)}
+  Use the Diversification Generator to 
+  generate diverse trial solutions from the seed solution(s).
+\item \textit{(Improvement and Reference Set Update Methods.)}
+  For each trial solution produced in Step 2,
+  use the Improvement Method to create one or more enhanced trial solutions.
+  During successive applications of this step,
+  maintain and update a Reference Set
+  consisting of the b best solutions found.
+\item \textit{(Repeat.)}
+  Execute Steps 2 and 3 until 
+  producing some designated total number of enhanced trial solutions
+  as a source of candidates for the Reference Set.
+\end{enumerate}
+\newpage
+\textbf{Path Relinking Phase}
+\subsubsection{Path Relinking Phase}
+\begin{enumerate}
+  \setcounter{enumi}{4}
+\item \textit{(Subset Generation Method.)}
+  Generate subsets of the Reference Set 
+  as a basis for creating combined solutions.
+\item \textit{(Solution Combination Method.)}
+  For each subset X produced in Step 5, 
+  use the Solution Combination Method to produce a set C(X)
+  that consists of one or more combined solutions. 
+  Treat each member of C(X) as a trial solution for the following step.
+\item \textit{(Improvement and Reference Set Update Methods.)}
+  For each trial solution produced in Step 6, 
+  use the Improvement Method to create one or more enhanced trial solutions, 
+  while continuing to maintain and update the Reference Set.
+\item \textit{(Repeat.)}
+  Execute Steps 5-7 in repeated sequence,
+  until reaching a specified cutoff limit on the total number of iterations.
+\end{enumerate}

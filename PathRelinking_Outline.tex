@@ -1,0 +1,26 @@
+Components of Path Relinking template \cite{glover1998template} consist of
+specific subroutines of the following types:
+\begin{itemize}
+\item A Diversification Generator: 
+  to generate a collection of diverse trial solutions,
+  using an arbitrary trial solution (or seed solution) as an input.
+\item An Improvement Method:
+  to transform a trial solution into one or more enhanced trial solutions. 
+  (Neither the input nor output solutions are required to be feasible,
+  though the output solutions will more usually be expected to be so.
+  If no improvement of the input trial solution results, 
+  the ``enhanced'' solution is considered to be the same as the input solution.)
+\item A Reference Set Update Method:
+  to build and maintain a Reference Set
+  consisting of the b best solutions found
+  (where the value of b is typically small, e.g., between 20 and 40), 
+  organized to provide efficient accessing by other parts of the method.
+\item A Subset Generation Method: 
+  to operate on the Reference Set, 
+  to produce a subset of its solutions 
+  as a basis for creating combined solutions.
+\item A Solution Combination Method:
+  to transform a given subset of solutions 
+  produced by the Subset Generation Method
+  into one or more combined solution vectors.
+\end{itemize}
