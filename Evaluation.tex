@@ -2,9 +2,17 @@
 \section{Heuristics}
 \subsection{Evaluation}
 \begin{frame}
-  The objective function to considered is one that estimates the average time of arrival of the adjusters.
+  The objective function to considered
+  is one that estimates
+  the average time of arrival of the adjusters.
   \begin{equation}
-    \sum_{i=1}^{p}{\sum_{k=1}^p{\sum_{j|a_{jk}=i}{f_{ij}\tau_{ij}}}}
+    \sum_{i=1}^{p}{
+      \sum_{k=1}^p{
+        \sum_{j|a_{jk}=i}{
+          f_{ij}\tau_{ij}
+        }
+      }
+    }
   \end{equation}
   for evaluation, values of $f_{ij}$ are required. 
 \end{frame}
