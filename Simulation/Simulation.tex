@@ -1,0 +1,19 @@
+\begin{algorithm}
+  \hline \vspace{3pt}
+  \caption{Simulation}\label{alg_sim}
+  \vspace{3pt} \hline
+  \begin{algorithmic}[0]
+    \Procedure{Simulation}{$demandpoints,Solution$}
+    \State $Status.Solution \gets Solution$
+    \State $Status.EventsList \gets GenerateCalls(demandpoints)$
+    \State $Status.QueueList \gets EmptyList()$
+    \State $Status.time \gets 0$
+    \While{$Status.EventsList.notempty()$}
+    \State $Event \gets EventsList.front()$
+    \State $EventsList.remove.first()$
+    \State $Event.process(Status)$
+    \EndWhile
+    \EndProcedure
+  \end{algorithmic}
+  \hline
+\end{algorithm}

@@ -1,0 +1,18 @@
+\begin{algorithm}
+  \hline \vspace{3pt}
+  \caption{Process Release}\label{proc_rel}
+  \vspace{3pt} \hline
+  \begin{algorithmic}[0]
+    \Procedure{Release::process}{$Status$}
+    \State $Status.busy[release.server] \gets false$
+    \State $Status.time \gets release.time$
+    \If{$Status.QueueList.notempty()$}
+    \State $call \gets NearestCall(Status.QueueList,release.server)$
+    \State $Status.busy[release.server] \gets true$
+    \State $release \gets Attend(call,release.server)$
+    \State $Staus.EventList.InsertOrdered(release)$
+    \EndIf
+    \EndProcedure
+    \hline
+  \end{algorithmic}
+\end{algorithm}

@@ -1,0 +1,19 @@
+\begin{algorithm}
+  \hline \vspace{3pt}
+  \caption{Process Call}\label{proc_call}
+  \vspace{3pt} \hline
+  \begin{algorithmic}[0]
+    \Procedure{Call::process}{$Status$}
+    \State $Status.time \gets call.time$
+    \If{$IdleServerExist(Status)$}
+    \State $server \gets NearestIdleServer(Status,call)$
+    \State $Status.busy[server] \gets true$
+    \State $release \gets Attend(call,server)$
+    \State $Staus.EventList.InsertOrdered(release)$
+    \Else
+    \State $Status.QueueList.Insert(call)$
+    \EndIf
+    \EndProcedure
+    \hline
+  \end{algorithmic}
+\end{algorithm}
